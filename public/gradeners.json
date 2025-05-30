@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Green",
+    "age": 32,
+    "gender": "Female",
+    "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+    "status": "active",
+    "experiences": "Urban gardening, composting",
+    "totalSharedTips": 12,
+    "bio": "Urban gardener and composting enthusiast."
+  },
+  {
+    "id": 2,
+    "name": "Bob Bloom",
+    "age": 41,
+    "gender": "Male",
+    "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+    "status": "active",
+    "experiences": "Balcony gardening, tomatoes",
+    "totalSharedTips": 8,
+    "bio": "Balcony garden expert."
+  },
+  {
+    "id": 3,
+    "name": "Cathy Sprout",
+    "age": 29,
+    "gender": "Female",
+    "avatar": "https://randomuser.me/api/portraits/women/3.jpg",
+    "status": "inactive",
+    "experiences": "Hydroponics",
+    "totalSharedTips": 5,
+    "bio": "Hydroponics hobbyist."
+  },
+  {
+    "id": 4,
+    "name": "Dan Leaf",
+    "age": 36,
+    "gender": "Male",
+    "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+    "status": "active",
+    "experiences": "Community gardening, vegetables",
+    "totalSharedTips": 15,
+    "bio": "Community garden volunteer."
+  },
+  {
+    "id": 5,
+    "name": "Eva Roots",
+    "age": 27,
+    "gender": "Female",
+    "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+    "status": "active",
+    "experiences": "Succulents, cacti",
+    "totalSharedTips": 10,
+    "bio": "Succulent collector."
+  },
+  {
+    "id": 6,
+    "name": "Frank Flora",
+    "age": 45,
+    "gender": "Male",
+    "avatar": "https://randomuser.me/api/portraits/men/6.jpg",
+    "status": "inactive",
+    "experiences": "Herbs, kitchen gardening",
+    "totalSharedTips": 7,
+    "bio": "Herb garden specialist."
+  },
+  {
+    "id": 7,
+    "name": "Grace Vine",
+    "age": 34,
+    "gender": "Female",
+    "avatar": "https://randomuser.me/api/portraits/women/7.jpg",
+    "status": "active",
+    "experiences": "Flower arrangements, roses",
+    "totalSharedTips": 9,
+    "bio": "Flower arrangement artist."
+  },
+  {
+    "id": 8,
+    "name": "Henry Moss",
+    "age": 39,
+    "gender": "Male",
+    "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+    "status": "active",
+    "experiences": "Organic vegetables, soil health",
+    "totalSharedTips": 14,
+    "bio": "Organic vegetable grower."
+  },
+  {
+    "id": 9,
+    "name": "Ivy Fern",
+    "age": 30,
+    "gender": "Female",
+    "avatar": "https://randomuser.me/api/portraits/women/9.jpg",
+    "status": "inactive",
+    "experiences": "Indoor plants",
+    "totalSharedTips": 6,
+    "bio": "Indoor plant lover."
+  },
+  {
+    "id": 10,
+    "name": "Jack Seed",
+    "age": 38,
+    "gender": "Male",
+    "avatar": "https://randomuser.me/api/portraits/men/10.jpg",
+    "status": "active",
+    "experiences": "Permaculture, fruit trees",
+    "totalSharedTips": 11,
+    "bio": "Permaculture advocate."
+  }
+]

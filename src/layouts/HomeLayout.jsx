@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Outlet } from "react-router";
 import Slider from "../components/Slider";
+import FeaturedGardeners from "../components/FeaturedGardeners";
 
 const HomeLayout = () => {
   return (
@@ -12,6 +13,7 @@ const HomeLayout = () => {
       </header>
       <main>
         <Slider></Slider>
+        <FeaturedGardeners />
         <Outlet></Outlet>
       </main>
       <footer>
