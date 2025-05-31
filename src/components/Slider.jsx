@@ -37,7 +37,7 @@ const events = [
 
 const Slider = () => {
   return (
-    <div className="py-10">
+    <div className="py-2">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={30}
@@ -52,7 +52,7 @@ const Slider = () => {
               <img
                 src={event.image}
                 alt={event.title}
-                className="w-full h-full object-cover"
+                className="w-full h-[600px]"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-white p-8 rounded-lg text-center">

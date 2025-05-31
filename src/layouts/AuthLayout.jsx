@@ -1,22 +1,21 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Outlet } from "react-router";
 
-const HomeLayout = () => {
+const AuthLayout = () => {
   return (
     <div>
       <header>
-        <Navbar />
+        <Navbar></Navbar>
       </header>
       <main>
-        <Outlet />
+        <Outlet></Outlet>
       </main>
       <footer>
-        <Footer />
+        <Footer></Footer>
       </footer>
     </div>
   );
 };
 
-export default HomeLayout;
+export default AuthLayout;

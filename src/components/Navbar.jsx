@@ -28,7 +28,7 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/auth/profile"
+            to="/explore-gardeners"
             className={({ isActive }) =>
               isActive ? "text-primary font-semibold" : "hover:text-primary"
             }
@@ -36,7 +36,7 @@ const Navbar = () => {
             Explore Gardeners
           </NavLink>
           <NavLink
-            to="/blogs"
+            to="/browse-tips"
             className={({ isActive }) =>
               isActive ? "text-primary font-semibold" : "hover:text-primary"
             }
@@ -44,7 +44,7 @@ const Navbar = () => {
             Browse Tips
           </NavLink>
           <NavLink
-            to="/blogs"
+            to="/share-tip"
             className={({ isActive }) =>
               isActive ? "text-primary font-semibold" : "hover:text-primary"
             }
@@ -52,7 +52,7 @@ const Navbar = () => {
             Share a Garden Tip
           </NavLink>
           <NavLink
-            to="/blogs"
+            to="/my-tips"
             className={({ isActive }) =>
               isActive ? "text-primary font-semibold" : "hover:text-primary"
             }
