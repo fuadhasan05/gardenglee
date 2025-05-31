@@ -35,40 +35,38 @@ const ShareTip = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const tipData = Object.fromEntries(formData.entries());
-    console.log('Submitted Tip Data:', tipData);
-    fetch('http://localhost:5173/share-tip', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...tipData,
-          userName: mockUser.name,
-          userEmail: mockUser.email,
-        }),
-    })
-    
-
-    setForm({
-      title: '',
-      plantType: '',
-      difficulty: '',
-      description: '',
-      imageUrl: '',
-      category: '',
-      availability: '',
-    });
-    Swal.fire({
-      icon: 'success',
-      title: 'Tip submitted successfully!',
-      showConfirmButton: false,
-      timer: 1800,
-    });
+  e.preventDefault();
+  const newtip = {
+    ...form,
+    userName: mockUser.name,
+    userEmail: mockUser.email,
   };
+  console.log('Submitted Tip Data:', newtip);
+  fetch('http://localhost:3000/share-tip', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newtip),
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log('Response from server:', data);
+      Swal.fire({
+        icon: 'success',
+        title: 'Tip submitted successfully!',
+        showConfirmButton: false,
+        timer: 1800,
+      });     
+    })
+    .catch(err => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Submission failed!',
+        text: err.message,
+      });
+    });
+};
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 py-8">
