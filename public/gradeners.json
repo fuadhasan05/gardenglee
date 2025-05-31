@@ -108,5 +108,116 @@
     "experiences": "Permaculture, fruit trees",
     "totalSharedTips": 11,
     "bio": "Permaculture advocate."
+  },
+
+  {
+    "title": "How I Grow Tomatoes Indoors",
+    "plantType": "Tomato",
+    "difficulty": "Medium",
+    "description": "Use grow lights and self-watering pots for healthy indoor tomatoes.",
+    "imageUrl": "https://example.com/tomato.jpg",
+    "category": "Plant Care",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Easy Composting at Home",
+    "plantType": "General",
+    "difficulty": "Easy",
+    "description": "Start with kitchen scraps and dry leaves for rich compost.",
+    "imageUrl": "https://example.com/compost.jpg",
+    "category": "Composting",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Vertical Herb Garden Setup",
+    "plantType": "Herbs",
+    "difficulty": "Medium",
+    "description": "Use wall-mounted planters to save space and grow fresh herbs.",
+    "imageUrl": "https://example.com/vertical-herbs.jpg",
+    "category": "Vertical Gardening",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Hydroponic Lettuce Guide",
+    "plantType": "Lettuce",
+    "difficulty": "Hard",
+    "description": "Maintain pH and nutrients for crisp hydroponic lettuce.",
+    "imageUrl": "https://example.com/hydro-lettuce.jpg",
+    "category": "Hydroponics",
+    "availability": "Hidden",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Natural Pest Control with Neem Oil",
+    "plantType": "General",
+    "difficulty": "Easy",
+    "description": "Spray neem oil to keep pests away from your plants.",
+    "imageUrl": "https://example.com/neem-oil.jpg",
+    "category": "Pest Control",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "DIY Drip Irrigation System",
+    "plantType": "Vegetables",
+    "difficulty": "Medium",
+    "description": "Use recycled bottles for a simple drip irrigation setup.",
+    "imageUrl": "https://example.com/drip-irrigation.jpg",
+    "category": "Other",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Growing Basil on a Windowsill",
+    "plantType": "Basil",
+    "difficulty": "Easy",
+    "description": "Basil thrives in sunny windows with regular watering.",
+    "imageUrl": "https://example.com/basil.jpg",
+    "category": "Plant Care",
+    "availability": "Hidden",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Worm Composting Basics",
+    "plantType": "General",
+    "difficulty": "Medium",
+    "description": "Red wigglers are great for turning scraps into compost.",
+    "imageUrl": "https://example.com/worms.jpg",
+    "category": "Composting",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Balcony Vertical Garden",
+    "plantType": "Flowers",
+    "difficulty": "Medium",
+    "description": "Use hanging pots and trellises for a lush balcony garden.",
+    "imageUrl": "https://example.com/balcony.jpg",
+    "category": "Vertical Gardening",
+    "availability": "Public",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
+  },
+  {
+    "title": "Hydroponic Strawberries at Home",
+    "plantType": "Strawberry",
+    "difficulty": "Hard",
+    "description": "Keep water oxygenated and use net pots for best results.",
+    "imageUrl": "https://example.com/hydro-strawberry.jpg",
+    "category": "Hydroponics",
+    "availability": "Hidden",
+    "userName": "Jane Doe",
+    "userEmail": "jane@example.com"
   }
 ]
