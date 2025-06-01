@@ -37,19 +37,19 @@ const BrowseTips = () => {
         </p>
       </div>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white rounded-lg shadow">
+        <table className="min-w-full bg-white rounded-lg shadow text-sm sm:text-base">
           <thead className="bg-green-100">
             <tr>
-              <th className="px-6 py-3 text-left text-lg font-semibold text-green-800 border-0">
+              <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-left text-base sm:text-lg font-semibold text-green-800 border-0">
                 Title
               </th>
-              <th className="px-6 py-3 text-left text-lg font-semibold text-green-800 border-0">
+              <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-left text-base sm:text-lg font-semibold text-green-800 border-0">
                 Category
               </th>
-              <th className="px-6 py-3 text-left text-lg font-semibold text-green-800 border-0">
+              <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-left text-base sm:text-lg font-semibold text-green-800 border-0">
                 Image
               </th>
-              <th className="px-6 py-3 text-center text-lg font-semibold text-green-800 border-0">
+              <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-center text-base sm:text-lg font-semibold text-green-800 border-0">
                 Action
               </th>
             </tr>
@@ -57,23 +57,27 @@ const BrowseTips = () => {
           <tbody>
             {tips.map((tip) => (
               <tr key={tip._id} className="hover:bg-green-50 transition">
-                <td className="px-6 py-4 border-0 font-semibold">{tip.title}</td>
-                <td className="px-6 py-4 border-0">{tip.category}</td>
-                <td className="px-6 py-4 border-0">
+                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0 font-semibold">
+                  {tip.title}
+                </td>
+                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
+                  {tip.category}
+                </td>
+                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
                   <img
                     src={tip.imageUrl}
                     alt={tip.title}
-                    className="h-16 w-16 object-cover rounded shadow"
+                    className="h-10 w-10 sm:h-16 sm:w-16 object-cover rounded shadow"
                   />
                 </td>
-                <td className="px-6 py-4 border-0 text-center">
+                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0 text-center">
                   <button
                     onClick={() => navigate(`/tips/${tip._id}`)}
-                    className="inline-flex items-center justify-center rounded-full hover:bg-green-600 focus:outline-none "
+                    className="inline-flex items-center justify-center rounded-full hover:bg-green-600 focus:outline-none"
                     title="See More"
                     aria-label={`See details for ${tip.title}`}
                   >
-                    <FiEye className="text-green-700 text-xl cursor-pointer" />
+                    <FiEye className="text-green-700 text-lg sm:text-xl cursor-pointer" />
                   </button>
                 </td>
               </tr>
@@ -82,7 +86,7 @@ const BrowseTips = () => {
               <tr>
                 <td
                   colSpan={4}
-                  className="text-center py-8 text-gray-500 text-lg border-0"
+                  className="text-center py-8 text-gray-500 text-base sm:text-lg border-0"
                 >
                   No public tips found.
                 </td>
