@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from 'react';
+import { PulseLoader } from "react-spinners";
 
 const TopTips = () => {
   const [tips, setTips] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTips = async () => {
       try {
         const res = await fetch('http://localhost:3000/tips');
         const data = await res.json();
-        // Sort by totalLiked (or another trending metric), then take top 6
         const trending = data
           .sort((a, b) => (b.totalLiked || 0) - (a.totalLiked || 0))
           .slice(0, 6);
         setTips(trending);
       } catch (err) {
         console.error('Failed to fetch tips', err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchTips();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <PulseLoader color="#15803d" size={10} />
+      </div>
+    );
+  }
 
   return (
     <section className="w-11/12 max-w-7xl mx-auto py-12">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { FiThumbsUp } from "react-icons/fi";
+import { PulseLoader } from "react-spinners";
 
 const TipDetails = () => {
   const { id } = useParams();
@@ -33,8 +34,8 @@ const TipDetails = () => {
 
   if (loading) {
     return (
-      <div className="w-11/12 mx-auto py-20 text-center text-green-700 text-xl">
-        Loading tip details...
+      <div className="flex justify-center items-center py-32">
+        <PulseLoader color="#15803d" size={10} />
       </div>
     );
   }

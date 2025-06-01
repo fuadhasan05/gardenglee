@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { PulseLoader } from "react-spinners";
 
 const ExploreGardeners = () => {
   const [gardeners, setGardeners] = useState([]);
@@ -21,7 +22,9 @@ const ExploreGardeners = () => {
 
   if (loading)
     return (
-      <div className="text-center py-20 text-lg font-semibold">Loading...</div>
+      <div className="flex justify-center items-center py-32">
+        <PulseLoader color="#15803d" size={10} />
+      </div>
     );
 
   return (

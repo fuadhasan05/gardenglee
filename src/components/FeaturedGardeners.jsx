@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { PulseLoader } from "react-spinners";
 
 const FeaturedGardeners = () => {
   const [activeGardeners, setActiveGardeners] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchGardeners = async () => {
@@ -12,10 +14,20 @@ const FeaturedGardeners = () => {
         setActiveGardeners(actives);
       } catch (err) {
         console.error("Failed to fetch gardeners", err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchGardeners();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <PulseLoader color="#15803d" size={10} />
+      </div>
+    );
+  }
 
   return (
     <section className="w-11/12 max-w-7xl mx-auto py-20">

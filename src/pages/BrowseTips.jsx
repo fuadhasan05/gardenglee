@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FiEye } from "react-icons/fi";
+import { PulseLoader } from "react-spinners";
 
 const BrowseTips = () => {
   const [tips, setTips] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -11,19 +13,28 @@ const BrowseTips = () => {
       .then((res) => res.json())
       .then((data) => {
         setTips(data.filter((tip) => tip.availability === "Public"));
+        setLoading(false);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <PulseLoader color="#15803d" size={10} />
+      </div>
+    );
+  }
 
   return (
     <div className="w-11/12 mx-auto py-20">
       <div className="flex flex-col items-center mb-10">
         <h2 className="text-4xl font-bold mb-6 text-green-700">
-        Browse Public Tips
-      </h2>
-      <p className="mb-6 text-gray-600 text-base">
-        Discover helpful gardening tips shared by our community. Click the eye
-        icon to view more details about each tip.
-      </p>
+          Browse Public Tips
+        </h2>
+        <p className="mb-6 text-gray-600 text-base">
+          Discover helpful gardening tips shared by our community. Click the eye
+          icon to view more details about each tip.
+        </p>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white rounded-lg shadow">

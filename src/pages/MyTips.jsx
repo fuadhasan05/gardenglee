@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin2Line } from "react-icons/ri";
+import { PulseLoader } from "react-spinners";
 
 const MyTips = () => {
   const [tips, setTips] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,15 +14,22 @@ const MyTips = () => {
       .then((res) => res.json())
       .then((data) => {
         setTips(data);
+        setLoading(false);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-32">
+        <PulseLoader color="#15803d" size={10} />
+      </div>
+    );
+  }
 
   return (
     <div className="w-11/12 mx-auto py-20">
       <div className="flex flex-col items-center mb-10">
-        <h2 className="text-4xl font-bold mb-6 text-green-700">
-        My Tips
-      </h2>
+        <h2 className="text-4xl font-bold mb-6 text-green-700">My Tips</h2>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white rounded-lg shadow">
@@ -30,7 +39,7 @@ const MyTips = () => {
                 Title
               </th>
               <th className="px-6 py-3 text-left text-lg font-semibold text-green-800 border-0">
-                Category
+                Availability
               </th>
               <th className="px-6 py-3 text-left text-lg font-semibold text-green-800 border-0">
                 Image
@@ -44,7 +53,7 @@ const MyTips = () => {
             {tips.map((tip) => (
               <tr key={tip._id} className="hover:bg-green-50 transition">
                 <td className="px-6 py-4 border-0 font-semibold">{tip.title}</td>
-                <td className="px-6 py-4 border-0">{tip.category}</td>
+                <td className="px-6 py-4 border-0">{tip.availability}</td>
                 <td className="px-6 py-4 border-0">
                   <img
                     src={tip.imageUrl}
