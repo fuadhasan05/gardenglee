@@ -72,10 +72,16 @@ const Navbar = () => {
             My Tips
           </NavLink>
         </div>
+
         {/* Right - User Profile and Dropdown */}
-        <div className="hidden md:block">
-          <button>Login</button>
+        <div className="hidden md:block ">
+          <Link 
+          to="/auth/login" 
+          className="btn btn-primary text-center cursor-pointer">
+          Login
+          </Link>
         </div>
+
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center space-y-4 py-4 md:hidden z-50">
