@@ -3,6 +3,9 @@ import { useNavigate } from "react-router";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { PulseLoader } from "react-spinners";
+import Swal from "sweetalert2";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyTips = () => {
   const [tips, setTips] = useState([]);
@@ -18,6 +21,40 @@ const MyTips = () => {
       });
   }, []);
 
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (result.isConfirmed) {
+      const res = await fetch(`http://localhost:3000/tips/${id}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        setTips((prev) => prev.filter((tip) => tip._id !== id));
+        Swal.fire({
+          icon: "success",
+          title: "Tip deleted successfully!",
+          showConfirmButton: false,
+          timer: 1800,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Failed to delete tip.",
+          showConfirmButton: false,
+          timer: 1800,
+        });
+      }
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center py-32">
@@ -28,6 +65,7 @@ const MyTips = () => {
 
   return (
     <div className="w-11/12 mx-auto py-20">
+      <ToastContainer />
       <div className="flex flex-col items-center mb-10">
         <h2 className="text-4xl font-bold mb-6 text-green-700">My Tips</h2>
       </div>
@@ -73,10 +111,10 @@ const MyTips = () => {
                     <FaRegEdit className="text-green-700 text-xl" />
                   </button>
                   <button
-                    onClick={() => navigate(`/tips/${tip._id}`)}
+                    onClick={() => handleDelete(tip._id)}
                     className="inline-flex items-center justify-center rounded-full cursor-pointer hover:bg-red-400 focus:outline-none"
-                    title="See More"
-                    aria-label={`See details for ${tip.title}`}
+                    title="Delete Tip"
+                    aria-label={`Delete ${tip.title}`}
                   >
                     <RiDeleteBin2Line className="text-red-700 text-xl" />
                   </button>
