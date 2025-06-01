@@ -52,17 +52,17 @@ const Slider = () => {
               <img
                 src={event.image}
                 alt={event.title}
-                className="w-full h-[600px]"
+                className="w-full h-56 sm:h-72 md:h-96 lg:h-[600px] object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-white p-8 rounded-lg text-center">
-                  <h2 className="text-8xl font-extrabold mb-5">
+                <div className="text-white p-4 sm:p-8 rounded-lg text-center bg-black/40">
+                  <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold mb-3 sm:mb-5">
                     {event.title}
                   </h2>
-                  <p className=" text-2xl font-extrabold">
+                  <p className="text-base sm:text-lg md:text-2xl font-extrabold">
                     {event.description}
                   </p>
-                  <button className="bg-green-700 text-white border-0 px-10 py-2 btn mt-10">
+                  <button className="bg-green-700 text-white border-0 px-6 sm:px-10 py-2 btn mt-6 sm:mt-10">
                     Join Now
                   </button>
                 </div>
