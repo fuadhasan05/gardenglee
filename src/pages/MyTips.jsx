@@ -52,7 +52,9 @@ const MyTips = () => {
           <tbody>
             {tips.map((tip) => (
               <tr key={tip._id} className="hover:bg-green-50 transition">
-                <td className="px-6 py-4 border-0 font-semibold">{tip.title}</td>
+                <td className="px-6 py-4 border-0 font-semibold">
+                  {tip.title}
+                </td>
                 <td className="px-6 py-4 border-0">{tip.availability}</td>
                 <td className="px-6 py-4 border-0">
                   <img
@@ -63,10 +65,10 @@ const MyTips = () => {
                 </td>
                 <td className="px-6 py-4 border-0 text-center">
                   <button
-                    onClick={() => navigate(`/tips/${tip._id}`)}
+                    onClick={() => navigate(`/tips/update/${tip._id}`)}
                     className="inline-flex items-center justify-center rounded-full cursor-pointer hover:bg-green-400 focus:outline-none mr-4"
-                    title="See More"
-                    aria-label={`See details for ${tip.title}`}
+                    title="Edit Tip"
+                    aria-label={`Edit ${tip.title}`}
                   >
                     <FaRegEdit className="text-green-700 text-xl" />
                   </button>

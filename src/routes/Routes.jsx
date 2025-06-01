@@ -10,6 +10,7 @@ import ShareTip from "../pages/ShareTip";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import TipDetails from "../pages/TipDetails"; 
+import UpdateTip from "../pages/UpdateTip";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "tips/:id", 
         element: <TipDetails />,
+      },
+      {
+        path: "tips/update/:id", 
+        element: <UpdateTip />,
       },
     ],
   },
