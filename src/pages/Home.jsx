@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import FeaturedGardeners from "../components/FeaturedGardeners";
 import TopTips from "../components/TopTips";
 import GardeningQuote from "../components/GardeningQuote";
+import QuickTips from "../components/QuickTips";
 
 const Home = () => (
   <div>
@@ -10,6 +11,7 @@ const Home = () => (
     <FeaturedGardeners />
     <TopTips></TopTips>
     <GardeningQuote />
+    <QuickTips/>
   </div>
 );
 
