@@ -46,7 +46,7 @@ const BrowseTips = () => {
           <tbody>
             {tips.map((tip) => (
               <tr key={tip._id} className="hover:bg-green-50 transition">
-                <td className="px-6 py-4 border-0">{tip.title}</td>
+                <td className="px-6 py-4 border-0 font-semibold">{tip.title}</td>
                 <td className="px-6 py-4 border-0">{tip.category}</td>
                 <td className="px-6 py-4 border-0">
                   <img
@@ -58,11 +58,11 @@ const BrowseTips = () => {
                 <td className="px-6 py-4 border-0 text-center">
                   <button
                     onClick={() => navigate(`/tips/${tip._id}`)}
-                    className="inline-flex items-center justify-center p-2 rounded hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    className="inline-flex items-center justify-center rounded-full hover:bg-green-600 focus:outline-none "
                     title="See More"
                     aria-label={`See details for ${tip.title}`}
                   >
-                    <FiEye className="text-green-700 text-xl" />
+                    <FiEye className="text-green-700 text-xl cursor-pointer" />
                   </button>
                 </td>
               </tr>
