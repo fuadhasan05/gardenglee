@@ -31,7 +31,7 @@ const FeaturedGardeners = () => {
 
   return (
     <section className="w-11/12 max-w-7xl mx-auto py-20">
-      <h2 className="text-5xl font-bold mb-6 text-green-700 text-center">Featured Gardeners</h2>
+      <h2 className="text-4xl font-bold mb-6 text-green-700 text-center">Featured Gardeners</h2>
       <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-center text-base sm:text-lg">
         Meet some of our most active and inspiring gardeners. These community members are passionate about sharing their knowledge, supporting others, and growing together. Explore their profiles and get motivated to start or enhance your own gardening journey!
       </p>
