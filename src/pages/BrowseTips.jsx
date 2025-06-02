@@ -3,15 +3,18 @@ import { useNavigate } from "react-router";
 import { FiEye } from "react-icons/fi";
 import { PulseLoader } from "react-spinners";
 
+const difficultyLevels = ["All", "Easy", "Medium", "Hard"];
+
 const BrowseTips = () => {
   const [tips, setTips] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const navigate = useNavigate();
 
   // Set dynamic title
-    useEffect(() => {
-      document.title = "GardenGlee - Browse Tips";
-    }, []);
+  useEffect(() => {
+    document.title = "GardenGlee - Browse Tips";
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3000/tips")
@@ -21,6 +24,21 @@ const BrowseTips = () => {
         setLoading(false);
       });
   }, []);
+
+  // Filter tips by difficulty
+  const filteredTips =
+    selectedDifficulty === "All"
+      ? tips
+      : tips.filter((tip) => tip.difficulty === selectedDifficulty);
+
+  // Sort so selected difficulty comes first
+  const sortedTips =
+    selectedDifficulty === "All"
+      ? tips
+      : [
+          ...filteredTips,
+          ...tips.filter((tip) => tip.difficulty !== selectedDifficulty),
+        ];
 
   if (loading) {
     return (
@@ -40,6 +58,22 @@ const BrowseTips = () => {
           Discover helpful gardening tips shared by our community. Click the eye
           icon to view more details about each tip.
         </p>
+        {/* Difficulty Filter */}
+        <div className="mb-4 flex flex-wrap gap-2">
+          {difficultyLevels.map((level) => (
+            <button
+              key={level}
+              className={`px-8 text-base py-1 rounded-full border ${
+                selectedDifficulty === level
+                  ? "bg-green-700 text-white border-green-700"
+                  : "bg-white text-green-700 border-green-300 hover:bg-green-50"
+              } transition`}
+              onClick={() => setSelectedDifficulty(level)}
+            >
+              {level}
+            </button>
+          ))}
+        </div>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white rounded-lg shadow text-sm sm:text-base">
@@ -52,6 +86,9 @@ const BrowseTips = () => {
                 Category
               </th>
               <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-left text-base sm:text-lg font-semibold text-green-800 border-0">
+                Difficulty
+              </th>
+              <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-left text-base sm:text-lg font-semibold text-green-800 border-0">
                 Image
               </th>
               <th className="px-2 sm:px-4 md:px-6 py-2 sm:py-3 text-center text-base sm:text-lg font-semibold text-green-800 border-0">
@@ -60,37 +97,41 @@ const BrowseTips = () => {
             </tr>
           </thead>
           <tbody>
-            {tips.map((tip) => (
-              <tr key={tip._id} className="hover:bg-green-50 transition">
-                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0 font-semibold">
-                  {tip.title}
-                </td>
-                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
-                  {tip.category}
-                </td>
-                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
-                  <img
-                    src={tip.imageUrl}
-                    alt={tip.title}
-                    className="h-10 w-10 sm:h-16 sm:w-16 object-cover rounded shadow"
-                  />
-                </td>
-                <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0 text-center">
-                  <button
-                    onClick={() => navigate(`/tips/${tip._id}`)}
-                    className="inline-flex items-center justify-center rounded-full hover:bg-green-600 focus:outline-none"
-                    title="See More"
-                    aria-label={`See details for ${tip.title}`}
-                  >
-                    <FiEye className="text-green-700 text-lg sm:text-xl cursor-pointer" />
-                  </button>
-                </td>
-              </tr>
-            ))}
-            {tips.length === 0 && (
+            {sortedTips.length > 0 ? (
+              sortedTips.map((tip) => (
+                <tr key={tip._id} className="hover:bg-green-50 transition">
+                  <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0 font-semibold">
+                    {tip.title}
+                  </td>
+                  <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
+                    {tip.category}
+                  </td>
+                  <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
+                    {tip.difficulty}
+                  </td>
+                  <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0">
+                    <img
+                      src={tip.imageUrl}
+                      alt={tip.title}
+                      className="h-10 w-10 sm:h-16 sm:w-16 object-cover rounded shadow"
+                    />
+                  </td>
+                  <td className="px-2 sm:px-4 md:px-6 py-2 sm:py-4 border-0 text-center">
+                    <button
+                      onClick={() => navigate(`/tips/${tip._id}`)}
+                      className="inline-flex items-center justify-center rounded-full hover:bg-green-600 focus:outline-none"
+                      title="See More"
+                      aria-label={`See details for ${tip.title}`}
+                    >
+                      <FiEye className="text-green-700 text-lg sm:text-xl cursor-pointer" />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
               <tr>
                 <td
-                  colSpan={4}
+                  colSpan={5}
                   className="text-center py-8 text-gray-500 text-base sm:text-lg border-0"
                 >
                   No public tips found.
