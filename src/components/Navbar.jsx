@@ -1,9 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../assets/icon.png";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import userIcon from "../assets/userIcon.png";
+import { FaBars } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  // Handle logout functionality
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        // Show success toast notification
+        toast.success("You have successfully logged out!");
+      })
+      .catch((error) => {
+        // Show error toast notification
+        toast.error(`Logout failed: ${error.message}`);
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -74,12 +94,49 @@ const Navbar = () => {
         </div>
 
         {/* Right - User Profile and Dropdown */}
-        <div className="hidden md:block ">
-          <Link 
-          to="/auth/login" 
-          className="btn btn-primary text-center cursor-pointer">
-          Login
-          </Link>
+        <div className="flex items-center gap-3">
+          {/* User Profile */}
+          <div
+            className="relative"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          >
+            <img
+              className="w-10 h-10 rounded-full cursor-pointer bg-blue-100"
+              src={user?.photoURL || userIcon}
+              alt="User Profile"
+            />
+            {/* Tooltip for username */}
+            {showTooltip && user?.displayName && (
+              <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-gray-600 text-white text-sm px-3 py-1 rounded">
+                {user.displayName}
+              </div>
+            )}
+          </div>
+
+          {/* Login Link Button */}
+          <div className="hidden md:block lg:block ">
+            {user ? (
+              <button
+                onClick={handleLogout}
+                className="px-8 py-2 btn btn-primary"
+              >
+                LogOut
+              </button>
+            ) : (
+              <Link to="/auth/login" className="px-8 py-2 btn btn-primary">
+                Login
+              </Link>
+            )}
+          </div>
+
+          {/* Hamburger Menu for Small Devices */}
+          <div className="md:hidden">
+            <FaBars
+              className="text-gray-600 text-2xl cursor-pointer"
+              onClick={() => setMenuOpen(!menuOpen)} // Toggle dropdown menu
+            />
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -120,7 +177,23 @@ const Navbar = () => {
             >
               My Tips
             </NavLink>
-            <button onClick={() => setMenuOpen(false)}>Login</button>
+            {user ? (
+              <button
+                // onClick={handleLogout}
+                className="px-8 py-2 btn btn-primary"
+                onClick={() => setMenuOpen(false)}
+              >
+                LogOut
+              </button>
+            ) : (
+              <Link
+                to="/auth/login"
+                className="px-8 py-2 btn btn-primary"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+            )}
           </div>
         )}
       </nav>
