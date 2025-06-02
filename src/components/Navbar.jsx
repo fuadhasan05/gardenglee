@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import userIcon from "../assets/userIcon.png";
 import { FaBars } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Switcher from "./Switcher";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -94,6 +95,7 @@ const Navbar = () => {
 
         {/* Right - User Profile and Dropdown */}
         <div className="flex items-center gap-3">
+          <Switcher />
           {/* User Profile with Tooltip and Logout */}
           {user && (
             <div className="relative group">
