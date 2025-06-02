@@ -112,7 +112,7 @@ const Navbar = () => {
                 <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white border border-gray-200 shadow-lg px-4 py-2 rounded z-50">
                   <button
                     onClick={handleLogout}
-                    className="px-4 py-2 btn btn-primary w-full"
+                    className="px-4 py-2 btn btn-primary w-full text-white"
                   >
                     LogOut
                   </button>
@@ -124,7 +124,7 @@ const Navbar = () => {
           {/* Login Link Button (if not logged in) */}
           {!user && (
             <div className="hidden md:block lg:block">
-              <Link to="/auth/login" className="px-8 py-2 btn btn-primary">
+              <Link to="/auth/login" className="px-8 py-2 btn btn-primary text-white">
                 Login
               </Link>
             </div>
@@ -173,7 +173,7 @@ const Navbar = () => {
             {user ? "" : (
               <Link
                 to="/auth/login"
-                className="px-8 py-2 btn btn-primary"
+                className="px-8 py-2 btn btn-primary text-white"
                 onClick={() => setMenuOpen(false)}
               >
                 Login

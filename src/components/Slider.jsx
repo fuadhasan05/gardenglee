@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 import slider1 from "../assets/garden-banner1.jpg";
 import slider2 from "../assets/garden-banner2.jpg";
 import slider3 from "../assets/garden-banner3.jpg";
@@ -60,14 +61,22 @@ const Slider = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-white p-4 sm:p-8 rounded-lg text-center bg-black/40">
                   <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold mb-3 sm:mb-5">
-                    {event.title}
+                    <Typewriter
+                      words={[event.title]}
+                      loop={false}
+                      cursor
+                      cursorStyle="|"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                    />
                   </h2>
                   <p className="text-base sm:text-sm md:text-2xl font-extrabold">
                     {event.description}
                   </p>
                   <button
                     className="btn btn-primary text-white border-0 px-6 sm:px-10 py-2 mt-6 sm:mt-10"
-                    onClick={() => navigate("/error")} 
+                    onClick={() => navigate("/error")}
                   >
                     Join Now
                   </button>
