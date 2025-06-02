@@ -11,6 +11,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import TipDetails from "../pages/TipDetails"; 
 import UpdateTip from "../pages/UpdateTip";
+import PrivateRoute from "../provider/PrivateRoute";
+
 
 const router = createBrowserRouter([
   {
@@ -32,19 +34,35 @@ const router = createBrowserRouter([
       },
       {
         path: "my-tips",
-        element: <MyTips />,
+        element: (
+          <PrivateRoute>
+            <MyTips />
+          </PrivateRoute>
+        ),
       },
       {
         path: "share-tip",
-        element: <ShareTip />,
+        element: (
+          <PrivateRoute>
+            <ShareTip />
+          </PrivateRoute>
+        ),
       },
       {
         path: "tips/:id", 
-        element: <TipDetails />,
+        element: (
+          <PrivateRoute>
+            <TipDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "tips/update/:id", 
-        element: <UpdateTip />,
+        element: (
+          <PrivateRoute>
+            <UpdateTip />
+          </PrivateRoute>
+        ),
       },
     ],
   },
