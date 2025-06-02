@@ -47,7 +47,7 @@ const ShareTip = () => {
     userEmail: mockUser.email,
   };
   console.log('Submitted Tip Data:', newtip);
-  fetch('http://localhost:3000/share-tip', {
+  fetch('https://garden-glee-server.vercel.app/share-tip', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

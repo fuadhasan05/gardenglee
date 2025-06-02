@@ -17,7 +17,7 @@ const BrowseTips = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/tips")
+    fetch("https://garden-glee-server.vercel.app/tips")
       .then((res) => res.json())
       .then((data) => {
         setTips(data.filter((tip) => tip.availability === "Public"));

@@ -8,7 +8,7 @@ const TopTips = () => {
   useEffect(() => {
     const fetchTips = async () => {
       try {
-        const res = await fetch("http://localhost:3000/tips");
+        const res = await fetch("https://garden-glee-server.vercel.app/tips");
         const data = await res.json();
         const trending = data
           .sort((a, b) => (b.totalLiked || 0) - (a.totalLiked || 0))

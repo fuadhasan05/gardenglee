@@ -13,7 +13,7 @@ const ExploreGardeners = () => {
   useEffect(() => {
     const fetchGardeners = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/gardeners");
+        const res = await fetch("https://garden-glee-server.vercel.app/api/gardeners");
         const data = await res.json();
         setGardeners(data);
       } catch (err) {

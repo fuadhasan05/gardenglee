@@ -17,7 +17,7 @@ const MyTips = () => {
     }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/tips")
+    fetch("https://garden-glee-server.vercel.app/tips")
       .then((res) => res.json())
       .then((data) => {
         setTips(data);
@@ -37,7 +37,7 @@ const MyTips = () => {
     });
 
     if (result.isConfirmed) {
-      const res = await fetch(`http://localhost:3000/tips/${id}`, {
+      const res = await fetch(`https://garden-glee-server.vercel.app/tips/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

@@ -14,7 +14,7 @@ const TipDetails = () => {
     }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/tips/${id}`)
+    fetch(`https://garden-glee-server.vercel.app/tips/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTip(data);
@@ -27,7 +27,7 @@ const TipDetails = () => {
     setLikeLoading(true);
     const updatedLikes = (tip.totalLiked || 0) + 1;
     // PATCH request to update like count
-    await fetch(`http://localhost:3000/tips/${id}`, {
+    await fetch(`https://garden-glee-server.vercel.app/tips/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ totalLiked: updatedLikes }),

@@ -8,7 +8,7 @@ const FeaturedGardeners = () => {
   useEffect(() => {
     const fetchGardeners = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/gardeners");
+        const res = await fetch("https://garden-glee-server.vercel.app/api/gardeners");
         const data = await res.json();
         const actives = data.filter((g) => g.status === "active").slice(0, 6);
         setActiveGardeners(actives);

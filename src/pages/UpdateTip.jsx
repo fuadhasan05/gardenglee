@@ -19,7 +19,7 @@ const UpdateTip = () => {
     }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/tips/${id}`)
+    fetch(`https://garden-glee-server.vercel.app/tips/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTip(data);
@@ -38,7 +38,7 @@ const UpdateTip = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:3000/tips/${id}`, {
+    await fetch(`https://garden-glee-server.vercel.app/tips/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
