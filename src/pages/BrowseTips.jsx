@@ -8,6 +8,11 @@ const BrowseTips = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Set dynamic title
+    useEffect(() => {
+      document.title = "GardenGlee - Browse Tips";
+    }, []);
+
   useEffect(() => {
     fetch("http://localhost:3000/tips")
       .then((res) => res.json())

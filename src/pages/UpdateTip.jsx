@@ -15,6 +15,10 @@ const UpdateTip = () => {
   const [form, setForm] = useState({ title: "", availability: "", imageUrl: "" });
 
   useEffect(() => {
+      document.title = "GardenGlee - Update Tip";
+    }, []);
+
+  useEffect(() => {
     fetch(`http://localhost:3000/tips/${id}`)
       .then((res) => res.json())
       .then((data) => {

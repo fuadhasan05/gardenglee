@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -9,7 +9,13 @@ const Register = () => {
   const { createUser, setUser } = useContext(AuthContext);
   const { googleLogin } = useContext(AuthContext);
   const [setError] = useState("");
-  const [passwordError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const navigate = useNavigate();
+
+  // Set dynamic title
+  useEffect(() => {
+    document.title = "GardenGlee - Register";
+  }, []);
 
   const handaleRegister = (e) => {
     e.preventDefault();
@@ -18,6 +24,18 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
+
+    // Password validation
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "Password must be at least 8 characters, include 1 uppercase, 1 lowercase, and a special character."
+      );
+      return;
+    } else {
+      setPasswordError("");
+    }
 
     // Call createUser function to register the user
     createUser(email, password)
@@ -30,6 +48,9 @@ const Register = () => {
         }).then(() => {
           setUser({ ...user, displayName: name, photoURL: photo });
           toast.success("Registration successful!");
+          setTimeout(() => {
+            navigate("/"); // <-- navigate to home after success
+          }, 1000); // Give toast time to show
         });
       })
       .catch((error) => {
@@ -44,9 +65,8 @@ const Register = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        // console.log(user);
+
         toast.success("Google login successful!");
-        // navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;

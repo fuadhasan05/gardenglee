@@ -10,6 +10,10 @@ const TipDetails = () => {
   const [likeLoading, setLikeLoading] = useState(false);
 
   useEffect(() => {
+      document.title = "GardenGlee - Tip Details";
+    }, []);
+
+  useEffect(() => {
     fetch(`http://localhost:3000/tips/${id}`)
       .then((res) => res.json())
       .then((data) => {

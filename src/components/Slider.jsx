@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router";
 import slider1 from "../assets/garden-banner1.jpg";
 import slider2 from "../assets/garden-banner2.jpg";
 import slider3 from "../assets/garden-banner3.jpg";
@@ -36,6 +37,8 @@ const events = [
 ];
 
 const Slider = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="py-2">
       <Swiper
@@ -62,7 +65,10 @@ const Slider = () => {
                   <p className="text-base sm:text-sm md:text-2xl font-extrabold">
                     {event.description}
                   </p>
-                  <button className="bg-green-700 text-white border-0 px-6 sm:px-10 py-2 btn mt-6 sm:mt-10">
+                  <button
+                    className="btn btn-primary text-white border-0 px-6 sm:px-10 py-2 mt-6 sm:mt-10"
+                    onClick={() => navigate("/error")} 
+                  >
                     Join Now
                   </button>
                 </div>

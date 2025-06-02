@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 const categories = [
@@ -29,6 +29,11 @@ const ShareTip = () => {
     category: '',
     availability: '',
   });
+
+  // Set dynamic title
+    useEffect(() => {
+      document.title = "GardenGlee - Share a Tip";
+    }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -69,7 +74,7 @@ const ShareTip = () => {
 };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50 py-8">
+    <div className="flex justify-center items-center min-h-screen bg-green-50 py-8">
       <div className="w-full max-w-xl bg-white rounded-xl shadow-lg p-8">
         <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Share a Garden Tip</h2>
         <form onSubmit={handleSubmit} className="space-y-5">

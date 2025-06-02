@@ -13,6 +13,10 @@ const MyTips = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+      document.title = "GardenGlee - My Tips";
+    }, []);
+
+  useEffect(() => {
     fetch("http://localhost:3000/tips")
       .then((res) => res.json())
       .then((data) => {

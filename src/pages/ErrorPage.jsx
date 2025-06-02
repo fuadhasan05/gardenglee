@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useRouteError } from "react-router";
 
 const ErrorPage = () => {
   const error = useRouteError();
+
+  // Set dynamic title
+    useEffect(() => {
+      document.title = "GardenGlee - Error";
+    }, []);
+
   return (
     <>
       <div className="py-24 text-center border border-red-600 m-2 md:m-40 rounded-2xl">

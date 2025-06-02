@@ -5,6 +5,11 @@ const ExploreGardeners = () => {
   const [gardeners, setGardeners] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Set dynamic title
+    useEffect(() => {
+      document.title = "GardenGlee - Explore Gardeners";
+    }, []);
+
   useEffect(() => {
     const fetchGardeners = async () => {
       try {
