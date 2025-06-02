@@ -13,6 +13,7 @@
     "@fontsource/poppins": "^5.2.6",
     "@tailwindcss/vite": "^4.1.8",
     "firebase": "^11.8.1",
+    "lottie-react": "^2.4.1",
     "react": "^19.1.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.1.0",
@@ -20,6 +21,7 @@
     "react-router": "^7.6.1",
     "react-spinners": "^0.17.0",
     "react-toastify": "^11.0.5",
+    "react-tooltip": "^5.28.1",
     "sweetalert2": "^11.22.0",
     "swiper": "^11.2.8",
     "tailwindcss": "^4.1.8"

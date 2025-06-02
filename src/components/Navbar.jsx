@@ -8,18 +8,17 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
   // Handle logout functionality
   const handleLogout = () => {
     logOut()
       .then(() => {
-        // Show success toast notification
         toast.success("You have successfully logged out!");
+        setShowLogout(false);
       })
       .catch((error) => {
-        // Show error toast notification
         toast.error(`Logout failed: ${error.message}`);
         console.log(error);
       });
@@ -95,53 +94,47 @@ const Navbar = () => {
 
         {/* Right - User Profile and Dropdown */}
         <div className="flex items-center gap-3">
-          {/* User Profile */}
-          <div
-            className="relative"
-            onMouseEnter={() => setShowTooltip(true)}
-            onMouseLeave={() => setShowTooltip(false)}
-          >
-            <img
-              className="w-10 h-10 rounded-full cursor-pointer bg-blue-100"
-              src={user?.photoURL || userIcon}
-              alt="User Profile"
-            />
-            {/* Tooltip for username */}
-            {showTooltip && user?.displayName && (
-              <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-gray-600 text-white text-sm px-3 py-1 rounded">
+          {/* User Profile with Tooltip and Logout */}
+          {user && (
+            <div className="relative group">
+              <img
+                className="w-10 h-10 rounded-full cursor-pointer bg-blue-100"
+                src={user.photoURL || userIcon}
+                alt="User Profile"
+                onClick={() => setShowLogout((prev) => !prev)}
+                style={{ border: showLogout ? "2px solid #16a34a" : "none" }}
+              />
+              {/* Show user's name on hover */}
+              <div className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-1 bg-gray-800 text-white text-sm rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50">
                 {user.displayName}
               </div>
-            )}
-          </div>
+              {showLogout && (
+                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white border border-gray-200 shadow-lg px-4 py-2 rounded z-50">
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 btn btn-primary w-full"
+                  >
+                    LogOut
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
 
-          {/* Login Link Button */}
-          <div className="hidden md:block lg:block ">
-            {user ? (
-              <button
-                onClick={handleLogout}
-                className="px-8 py-2 btn btn-primary"
-              >
-                LogOut
-              </button>
-            ) : (
+          {/* Login Link Button (if not logged in) */}
+          {!user && (
+            <div className="hidden md:block lg:block">
               <Link to="/auth/login" className="px-8 py-2 btn btn-primary">
                 Login
               </Link>
-            )}
-          </div>
+            </div>
+          )}
 
-          {/* Hamburger Menu for Small Devices */}
-          <div className="md:hidden">
-            <FaBars
-              className="text-gray-600 text-2xl cursor-pointer"
-              onClick={() => setMenuOpen(!menuOpen)} // Toggle dropdown menu
-            />
-          </div>
         </div>
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center space-y-4 py-4 md:hidden z-50">
+          <div className="absolute top-full left-0 w-full bg-green-50 shadow-md flex flex-col items-center space-y-4 py-4 md:hidden z-50">
             <NavLink
               to="/"
               className="text-gray-700 font-medium"
@@ -177,15 +170,7 @@ const Navbar = () => {
             >
               My Tips
             </NavLink>
-            {user ? (
-              <button
-                // onClick={handleLogout}
-                className="px-8 py-2 btn btn-primary"
-                onClick={() => setMenuOpen(false)}
-              >
-                LogOut
-              </button>
-            ) : (
+            {user ? "" : (
               <Link
                 to="/auth/login"
                 className="px-8 py-2 btn btn-primary"
