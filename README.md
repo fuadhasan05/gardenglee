@@ -1,23 +1,42 @@
-**GardenGlee**
+**GARDENGLEE: A COMMUNITY GARDENING PLATFORM**
 
-A platform for gardening enthusiasts to share tips, find local gardeners, ask plant care questions, post or join gardening events, and connect over shared interests like composting, hydroponics, balcony gardens, etc.
+A comprehensive platform for gardening enthusiasts to share tips, connect with local gardeners, ask plant care questions, and participate in gardening events. GardenGlee fosters a vibrant community around shared interests such as composting, hydroponics, balcony gardening, and more.
 
 ---
 
-## 🌱 Project Name
-GardenGlee
+## 🌟 Project Purpose
+The purpose of GardenGlee is to provide a collaborative space for gardeners of all levels to learn, share, and grow together. The platform encourages knowledge exchange, local networking, and community-driven gardening activities.
+
+## 💡 Key Features
+- **Responsive Design:** Fully responsive across mobile, tablet, and desktop.
+- **Authentication System:** Secure login with email/password and Google authentication.
+- **Tip Management:** Add, update, delete, and view gardening tips.
+- **Search & Filters:** Search tips by title, filter by category or difficulty.
+- **User Profiles:** Showcase your garden, achievements, and contributions.
+- **Error Handling:** User-friendly error messages and loading indicators.
+- **Session Management:** Secure session management with Firebase Auth.
+
+## 🖌️ Application Pages
+**Public Pages**
+- **Home Page (/):** Highlights featured tips, events, and community stats.
+- **Browse Tips (/tips):** View all public gardening tips with filters and search.
+- **Tip Details (/tips/:id):** Detailed view of each gardening tip.
+
+**Protected Pages**
+- **My Tips (/my-tips):** Manage your submitted tips (edit, delete, view).
+- **Add Tip (/add-tip):** Submit new gardening tips with images and details.
+- **Profile (/profile):** View and edit your user profile and garden showcase.
+
+
+## 🛠️ Technologies Used
+- **Frontend:** React.js, Tailwind CSS, DaisyUI
+- **Backend:** Node.js, Express.js 
+- **Database:** MongoDB (for tips/gradeners info), Firebase Firestore (for user data)
+- **Authentication:** Firebase Auth, Google Authentication
+- **Deployment:** Firebase Hosting, Backend - Varcel
+- **Version Control:** GitHub
+
 
 ## 🌐 Live Site URL
-https://gardenglee25.web.app/
+[GardenGlee](https://gardenglee25.web.app/)
 
-## ✨ Features
-- Share gardening tips and advice with a community of enthusiasts
-- Find and connect with local gardeners in your area
-- Ask plant care questions and get answers from experienced members
-- Post or join gardening events, workshops, and meetups
-- Explore topics like composting, hydroponics, balcony gardening, and more
-- Create and join interest-based groups for specialized gardening topics
-- User profiles to showcase your garden and achievements
-
-## 📋 Project Description
-GardenGlee is a vibrant platform designed for gardening lovers to connect, learn, and grow together. Whether you’re a beginner or an expert, you can share your knowledge, ask questions, find local gardening friends, and participate in events. The platform fosters a supportive community where users can explore various gardening interests, from sustainable composting to urban balcony gardens, making gardening accessible and enjoyable for everyone.
