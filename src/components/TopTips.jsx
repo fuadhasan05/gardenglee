@@ -52,7 +52,7 @@ const TopTips = () => {
             <h3 className="text-xl font-semibold text-green-800 mb-2">
               {tip.title}
             </h3>
-            <p className="text-gray-600 text-sm bg-green-200 rounded-lg px-4 mb-4 inline-block w-fit">
+            <p className="text-green-600 text-sm bg-green-100 rounded-full px-4 mb-4 inline-block w-fit">
               {tip.difficulty}
             </p>
             <img className="h-50 w-100 mb-4" src={tip.imageUrl} alt="" />

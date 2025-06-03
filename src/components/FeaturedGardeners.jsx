@@ -47,7 +47,7 @@ const FeaturedGardeners = () => {
               className="w-20 h-20 rounded-full mb-4 border-4 border-green-600 object-cover"
             />
             <h3 className="text-xl font-semibold text-green-800">{gardener.name}</h3>
-            <p className="text-green-700 font-medium mb-2">Active Gardener</p>
+            <p className="text-green-700 text-sm bg-green-100 px-4 border-1 rounded-full my-2">Active Gardener</p>
             <p className="text-gray-600 text-center">{gardener.bio}</p>
           </div>
         ))}

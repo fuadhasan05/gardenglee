@@ -63,7 +63,7 @@ const BrowseTips = () => {
           {difficultyLevels.map((level) => (
             <button
               key={level}
-              className={`px-8 text-base py-1 rounded-full border ${
+              className={`px-8 text-base py-1 rounded-full border cursor-pointer ${
                 selectedDifficulty === level
                   ? "bg-green-700 text-white border-green-700"
                   : "bg-white text-green-700 border-green-300 hover:bg-green-50"
