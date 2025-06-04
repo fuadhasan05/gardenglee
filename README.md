@@ -1,4 +1,4 @@
-**GARDENGLEE: A COMMUNITY GARDENING PLATFORM**
+# GARDENGLEE: A COMMUNITY GARDENING PLATFORM
 
 A comprehensive platform for gardening enthusiasts to share tips, connect with local gardeners, ask plant care questions, and participate in gardening events. GardenGlee fosters a vibrant community around shared interests such as composting, hydroponics, balcony gardening, and more.
 
