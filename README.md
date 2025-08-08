@@ -3,6 +3,15 @@
 A comprehensive platform for gardening enthusiasts to share tips, connect with local gardeners, ask plant care questions, and participate in gardening events. GardenGlee fosters a vibrant community around shared interests such as composting, hydroponics, balcony gardening, and more.
 
 ---
+## 🌐 Live Site URL
+
+- [GardenGlee](https://gardenglee25.web.app/)
+
+## Preview
+
+![GardenGlee Screenshot](public/screenshot.png)
+
+---
 
 ## 🌟 Project Purpose
 The purpose of GardenGlee is to provide a collaborative space for gardeners of all levels to learn, share, and grow together. The platform encourages knowledge exchange, local networking, and community-driven gardening activities.
@@ -36,7 +45,36 @@ The purpose of GardenGlee is to provide a collaborative space for gardeners of a
 - **Deployment:** Firebase Hosting, Backend - Varcel
 - **Version Control:** GitHub
 
+## 🚀 Getting Started Locally
 
-## 🌐 Live Site URL
-[GardenGlee](https://gardenglee25.web.app/)
+Follow these steps to run GardenGlee on your local machine:
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/gardenglee.git
+   cd gardenglee
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   - Copy `.env.example` to `.env.local`.
+   - Fill in your Firebase, MongoDB, and other required credentials in `.env.local`.
+
+4. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+
+5. **Open the app in your browser:**
+   - Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+6. **(Optional) Build for production:**
+   ```sh
+   npm run build
+   ```
+
 
