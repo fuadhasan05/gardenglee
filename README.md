@@ -51,7 +51,7 @@ Follow these steps to run GardenGlee on your local machine:
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/gardenglee.git
+   git clone https://github.com/fuadhasan05/gardenglee.git
    cd gardenglee
    ```
 
